@@ -13,22 +13,26 @@ A high-performance, local-first desktop application built with **Rust** (Tauri) 
 ## ✨ Features
 
 ### 🚀 **Lightning Fast**
+
 - Rust-powered async directory scanning using `tokio` runtime
 - Real-time progress streaming via Tauri IPC events
 - Non-blocking I/O for zero UI freezes
 
 ### 🔒 **Secure by Design**
+
 - Sandboxed file access with strict path validation
 - No raw file paths stored in frontend memory
 - UUID-based file references for enhanced security
 
 ### 🎨 **Premium UX**
+
 - "Obsidian SaaS" dark mode design language
 - Sub-100ms interaction latency target
 - Custom frameless window with native controls
 - Framer Motion animations throughout
 
 ### 📦 **Cross-Platform**
+
 - Windows (x64) - `.msi` installer
 - macOS (Apple Silicon & Intel) - `.dmg` disk image
 - Linux - `.AppImage` and `.deb` packages
@@ -55,12 +59,14 @@ A high-performance, local-first desktop application built with **Rust** (Tauri) 
 ```
 
 ### Backend (Rust)
+
 - **Tauri Framework** - Lightweight alternative to Electron
 - **Tokio Runtime** - Async I/O for non-blocking operations
 - **WalkDir** - Efficient recursive directory traversal
 - **Serde** - Type-safe serialization for IPC
 
 ### Frontend (TypeScript/React)
+
 - **Zustand** - Lightweight state management
 - **Framer Motion** - Premium animations
 - **Tailwind CSS** - Utility-first styling
@@ -79,10 +85,6 @@ A high-performance, local-first desktop application built with **Rust** (Tauri) 
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/velox-core/velox-core.git
-cd velox-core
-
 # Install dependencies
 npm install
 
@@ -125,22 +127,22 @@ velox-core/
 
 ### IPC Commands (Frontend → Backend)
 
-| Command | Description |
-|---------|-------------|
-| `scan_directory` | Recursively scan a folder with progress streaming |
-| `cancel_scan` | Cancel an active scan operation |
-| `get_scan_status` | Get current scan status |
-| `heartbeat` | Backend health check |
-| `open_folder_dialog` | Open native folder picker |
+| Command              | Description                                       |
+| -------------------- | ------------------------------------------------- |
+| `scan_directory`     | Recursively scan a folder with progress streaming |
+| `cancel_scan`        | Cancel an active scan operation                   |
+| `get_scan_status`    | Get current scan status                           |
+| `heartbeat`          | Backend health check                              |
+| `open_folder_dialog` | Open native folder picker                         |
 
 ### Events (Backend → Frontend)
 
-| Event | Description |
-|-------|-------------|
-| `velox:ready` | Backend initialization complete |
+| Event                 | Description                     |
+| --------------------- | ------------------------------- |
+| `velox:ready`         | Backend initialization complete |
 | `velox:scan:progress` | Real-time scan progress updates |
-| `velox:scan:complete` | Scan finished successfully |
-| `velox:scan:error` | Scan encountered an error |
+| `velox:scan:complete` | Scan finished successfully      |
+| `velox:scan:error`    | Scan encountered an error       |
 
 ---
 
@@ -148,14 +150,14 @@ velox-core/
 
 ### Color Palette (Obsidian SaaS)
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `velox-void` | `#08090c` | Deepest background |
-| `velox-abyss` | `#0d0f14` | Primary background |
-| `velox-obsidian` | `#12151c` | Card backgrounds |
+| Token            | Hex       | Usage                    |
+| ---------------- | --------- | ------------------------ |
+| `velox-void`     | `#08090c` | Deepest background       |
+| `velox-abyss`    | `#0d0f14` | Primary background       |
+| `velox-obsidian` | `#12151c` | Card backgrounds         |
 | `accent-primary` | `#6366f1` | Primary actions (Indigo) |
 | `accent-success` | `#10b981` | Success states (Emerald) |
-| `accent-danger` | `#ef4444` | Error states (Red) |
+| `accent-danger`  | `#ef4444` | Error states (Red)       |
 
 ### Typography
 
@@ -170,6 +172,7 @@ velox-core/
 ### Tauri Configuration (`src-tauri/tauri.conf.json`)
 
 Key settings:
+
 - **Window**: 1280x800, frameless with custom title bar
 - **Permissions**: Scoped file access to user directories
 - **Updater**: Auto-update with public key verification
@@ -200,24 +203,3 @@ npm run tauri:build
 ```
 
 ---
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-<p align="center">
-  Built with ⚡ by the VELOX Engineering Team
-</p>
-
