@@ -1,15 +1,15 @@
 // VELOX CORE - Main Application Component
-import { useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { TitleBar } from './components/TitleBar';
-import { ScannerPanel } from './components/ScannerPanel';
-import { ProgressPanel } from './components/ProgressPanel';
-import { StatsPanel } from './components/StatsPanel';
-import { FileExplorer } from './components/FileExplorer';
-import { StatusBar } from './components/StatusBar';
-import { EmptyState } from './components/EmptyState';
-import { useVeloxStore } from './store/veloxStore';
-import * as ipc from './lib/ipc';
+import { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { TitleBar } from "./components/TitleBar";
+import { ScannerPanel } from "./components/ScannerPanel";
+import { ProgressPanel } from "./components/ProgressPanel";
+import { StatsPanel } from "./components/StatsPanel";
+import { FileExplorer } from "./components/FileExplorer";
+import { StatusBar } from "./components/StatusBar";
+import { EmptyState } from "./components/EmptyState";
+import { useVeloxStore } from "./store/veloxStore";
+import * as ipc from "./lib/ipc";
 
 function App() {
   const {
@@ -31,7 +31,7 @@ function App() {
     const setupListeners = async () => {
       // Ready event
       const unlistenReady = await ipc.onReady((event) => {
-        console.log('🚀 VELOX CORE Ready:', event);
+        console.log("🚀 VELOX CORE Ready:", event);
         setConnected(true);
         setBackendVersion(event.version);
       });
@@ -60,7 +60,7 @@ function App() {
         const sysInfo = await ipc.getSystemInfo();
         setSystemInfo(sysInfo);
       } catch (error) {
-        console.error('Failed to get system info:', error);
+        console.error("Failed to get system info:", error);
       }
     };
 
@@ -69,7 +69,14 @@ function App() {
     return () => {
       unlisteners.forEach((unlisten) => unlisten());
     };
-  }, [setConnected, setBackendVersion, setSystemInfo, updateProgress, completeScan, setError]);
+  }, [
+    setConnected,
+    setBackendVersion,
+    setSystemInfo,
+    updateProgress,
+    completeScan,
+    setError,
+  ]);
 
   // Heartbeat monitor
   useEffect(() => {
@@ -80,7 +87,7 @@ function App() {
     return () => monitor.stop();
   }, [setConnected]);
 
-  const isScanning = scanStatus === 'scanning';
+  const isScanning = scanStatus === "scanning";
   const hasResult = scanResult !== null;
 
   return (
@@ -90,16 +97,16 @@ function App() {
         {/* Gradient orbs */}
         <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-accent-primary/5 rounded-full blur-[128px]" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-accent-tertiary/5 rounded-full blur-[128px]" />
-        
+
         {/* Grid pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage: `
               linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
               linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)
             `,
-            backgroundSize: '64px 64px',
+            backgroundSize: "64px 64px",
           }}
         />
       </div>
@@ -143,7 +150,7 @@ function App() {
             {isScanning && scanProgress && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
+                animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
               >
@@ -193,4 +200,3 @@ function App() {
 }
 
 export default App;
-

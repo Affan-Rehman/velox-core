@@ -17,7 +17,6 @@ src-tauri/target/
 Cargo.lock
 
 # IDE
-.vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
 .idea/
@@ -44,8 +43,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Environment
-.env
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
@@ -58,3 +55,4 @@ coverage/
 *.pem
 .turbo/
 
+config.bat
