@@ -6,7 +6,7 @@ use parking_lot::RwLock;
 use std::collections::HashMap;
 use std::sync::Arc;
 
-use crate::types::{ScanId, ScanSession, ScanStatus};
+use crate::types::{ScanSession, ScanStatus};
 
 /// Global managed state for VELOX CORE
 pub struct VeloxState {

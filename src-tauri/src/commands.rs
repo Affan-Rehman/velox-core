@@ -1,10 +1,7 @@
 // VELOX CORE - Tauri Command Registry
 // Every frontend action has a corresponding async command
 
-use std::sync::Arc;
-
 use chrono::Utc;
-use human_bytes::human_bytes;
 use tauri::{api::dialog::FileDialogBuilder, State, Window};
 
 use crate::error::VeloxError;
@@ -109,7 +106,7 @@ pub async fn heartbeat(state: State<'_, VeloxState>) -> Result<HeartbeatResponse
 
 /// Open native folder dialog and return selected path
 #[tauri::command]
-pub async fn open_folder_dialog(window: Window) -> Result<Option<String>, VeloxError> {
+pub async fn open_folder_dialog(_window: Window) -> Result<Option<String>, VeloxError> {
     let (tx, rx) = std::sync::mpsc::channel();
 
     FileDialogBuilder::new()

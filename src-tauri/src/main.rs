@@ -13,6 +13,7 @@ mod state;
 mod types;
 
 use state::VeloxState;
+use tauri::Manager;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
 fn main() {
