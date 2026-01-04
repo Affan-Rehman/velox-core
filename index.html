@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Velox Core</title>
+
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Critical CSS - Prevent Flash of Unstyled Content */
+      html,
+      body,
+      #root {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #08090c;
+        color: #d1d5db;
+        font-family: "Satoshi", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow: hidden;
+      }
+
+      /* Disable text selection for desktop-native feel */
+      * {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      /* Allow text selection in specific areas */
+      .selectable,
+      input,
+      textarea,
+      [contenteditable="true"] {
+        user-select: text;
+        -webkit-user-select: text;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #12151c;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #252a38;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #3d4556;
+      }
+
+      /* Loading state */
+      .loading-shimmer {
+        background: linear-gradient(
+          90deg,
+          #12151c 0%,
+          #1a1e28 50%,
+          #12151c 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 2s linear infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
